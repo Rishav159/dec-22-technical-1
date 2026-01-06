@@ -9,7 +9,7 @@ This is a visual site builder that allows users to:
 - Edit component properties and styling
 - See a live preview of the page
 
-## What You Need to Implement
+## Instructions
 
 The component editors in `components/sidebar/editors/` are not implemented. You need to:
 
