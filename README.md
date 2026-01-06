@@ -71,9 +71,7 @@ Components have this structure:
   };
   props: {
     // Component-specific props (text, src, alt, etc.)
-    styling: {
-      // e.g., { fontSize: '16px', color: '#000000' }
-    }
+    styling: { } // Universal prop on all components to configure styling.
   }
 }
 ```
