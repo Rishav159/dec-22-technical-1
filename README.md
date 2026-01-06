@@ -81,18 +81,9 @@ Components have this structure:
 
 The `styling` object uses CSS property names in camelCase (React inline style format).
 
-## Requirements
-
-- All form inputs must be controlled components
-- Call `onUpdate` with the complete updated component object
-- No `any` types allowed
-- Components should use `const` declarations, not `function`
-- Style properties include units in the value (e.g., "16px", "2rem", "#ff0000")
-
 ## Success Criteria
 
 When complete, you should be able to:
-- Add a component
-- Click to edit it
-- Change any property or style
+- Change any style or property in a component
 - See the preview update in real-time
+- Style properties include units in the value (e.g., "16px", "2rem", "#ff0000")
