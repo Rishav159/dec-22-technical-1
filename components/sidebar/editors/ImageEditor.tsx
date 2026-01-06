@@ -1,107 +1,58 @@
-import { ImageComponent, Alignment } from '@/types/components';
-import { TextInput } from '../form/TextInput';
-import { StyleInput } from '../form/StyleInput';
-import { SelectInput } from '../form/SelectInput';
+import { ImageComponent } from '@/types/components';
 
 interface ImageEditorProps {
   component: ImageComponent;
   onUpdate: (component: ImageComponent) => void;
 }
 
+// =============================================================================
+// INTERVIEWEE TODO: Implement the ImageEditor component
+// =============================================================================
+// This editor should allow editing all properties of an image component:
+//
+// 1. Image URL (text input)
+// 2. Alt text (text input)
+// 3. Container alignment (dropdown: left, center, right)
+// 4. Styling properties:
+//    - width (input + unit selector: px, %, rem, em)
+//    - height (input + unit selector: px, %, rem, em)
+//    - borderRadius (input + unit selector: px, rem, em, %)
+//    - objectFit (dropdown: cover, contain, fill, none, scale-down)
+//
+// Requirements:
+// - Reuse the form input components you created for TextEditor and ButtonEditor
+// - All inputs should be controlled components
+// - Call onUpdate with the complete updated component when values change
+// - Proper TypeScript types (no 'any' types allowed)
+// =============================================================================
+
 export const ImageEditor = ({ component, onUpdate }: ImageEditorProps) => {
-  const updateProp = (key: 'src' | 'alt', value: string) => {
-    onUpdate({
-      ...component,
-      props: {
-        ...component.props,
-        [key]: value,
-      },
-    });
-  };
-
-  const updateStyling = (key: keyof ImageComponent['props']['styling'], value: string) => {
-    onUpdate({
-      ...component,
-      props: {
-        ...component.props,
-        styling: {
-          ...component.props.styling,
-          [key]: value,
-        },
-      },
-    });
-  };
-
-  const updateAlignment = (alignment: Alignment) => {
-    onUpdate({
-      ...component,
-      container: {
-        alignment,
-      },
-    });
-  };
-
   return (
-    <div>
-      <TextInput
-        label="Image URL"
-        value={component.props.src}
-        onChange={(value) => updateProp('src', value)}
-      />
+    <div className="space-y-4">
+      <div className="bg-yellow-50 border-2 border-yellow-400 rounded-lg p-6">
+        <h3 className="text-lg font-bold text-yellow-900 mb-2">
+          🖼️ INTERVIEWEE TODO
+        </h3>
+        <p className="text-sm text-yellow-800 mb-4">
+          Implement the ImageEditor component with form inputs for all image properties.
+        </p>
+        <div className="bg-white rounded p-4 text-xs">
+          <p className="font-semibold mb-2">Current component data:</p>
+          <pre className="overflow-auto">{JSON.stringify(component, null, 2)}</pre>
+        </div>
+      </div>
 
-      <TextInput
-        label="Alt Text"
-        value={component.props.alt}
-        onChange={(value) => updateProp('alt', value)}
-      />
-
-      <SelectInput
-        label="Container Alignment"
-        value={component.container.alignment}
-        onChange={(value) => updateAlignment(value as Alignment)}
-        options={[
-          { value: 'left', label: 'Left' },
-          { value: 'center', label: 'Center' },
-          { value: 'right', label: 'Right' },
-        ]}
-      />
-
-      <div className="border-t border-gray-200 pt-4 mt-4">
-        <h4 className="text-sm font-semibold text-gray-700 mb-3">Styling</h4>
-
-        <StyleInput
-          label="Width"
-          value={component.props.styling.width}
-          onChange={(value) => updateStyling('width', value)}
-          units={['px', '%', 'rem', 'em']}
-        />
-
-        <StyleInput
-          label="Height"
-          value={component.props.styling.height}
-          onChange={(value) => updateStyling('height', value)}
-          units={['px', '%', 'rem', 'em']}
-        />
-
-        <StyleInput
-          label="Border Radius"
-          value={component.props.styling.borderRadius}
-          onChange={(value) => updateStyling('borderRadius', value)}
-          units={['px', 'rem', 'em', '%']}
-        />
-
-        <SelectInput
-          label="Object Fit"
-          value={component.props.styling.objectFit}
-          onChange={(value) => updateStyling('objectFit', value)}
-          options={[
-            { value: 'cover', label: 'Cover' },
-            { value: 'contain', label: 'Contain' },
-            { value: 'fill', label: 'Fill' },
-            { value: 'none', label: 'None' },
-            { value: 'scale-down', label: 'Scale Down' },
-          ]}
-        />
+      <div className="text-sm text-gray-600 space-y-2">
+        <p className="font-semibold">Properties to implement:</p>
+        <ul className="list-disc list-inside space-y-1 text-xs ml-2">
+          <li>Image URL (text input)</li>
+          <li>Alt text (text input)</li>
+          <li>Container alignment (dropdown)</li>
+          <li>Width with unit selector</li>
+          <li>Height with unit selector</li>
+          <li>Border radius with unit selector</li>
+          <li>Object fit (dropdown)</li>
+        </ul>
       </div>
     </div>
   );

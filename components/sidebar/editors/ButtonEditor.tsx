@@ -1,123 +1,62 @@
-import { ButtonComponent, Alignment } from '@/types/components';
-import { TextInput } from '../form/TextInput';
-import { ColorInput } from '../form/ColorInput';
-import { StyleInput } from '../form/StyleInput';
-import { SelectInput } from '../form/SelectInput';
+import { ButtonComponent } from '@/types/components';
 
 interface ButtonEditorProps {
   component: ButtonComponent;
   onUpdate: (component: ButtonComponent) => void;
 }
 
+// =============================================================================
+// INTERVIEWEE TODO: Implement the ButtonEditor component
+// =============================================================================
+// This editor should allow editing all properties of a button component:
+//
+// 1. Button text (text input)
+// 2. Container alignment (dropdown: left, center, right)
+// 3. Styling properties:
+//    - backgroundColor (color picker + hex input)
+//    - color (color picker + hex input)
+//    - borderRadius (input + unit selector: px, rem, em, %)
+//    - padding (input + unit selector: px, rem, em)
+//    - fontSize (input + unit selector: px, rem, em)
+//    - fontWeight (dropdown: normal, bold, 300-800)
+//    - border (text input for full border value like "1px solid #000" or "none")
+//
+// Requirements:
+// - Reuse the form input components you created for TextEditor
+// - All inputs should be controlled components
+// - Call onUpdate with the complete updated component when values change
+// - Proper TypeScript types (no 'any' types allowed)
+// =============================================================================
+
 export const ButtonEditor = ({ component, onUpdate }: ButtonEditorProps) => {
-  const updateText = (text: string) => {
-    onUpdate({
-      ...component,
-      props: {
-        ...component.props,
-        text,
-      },
-    });
-  };
-
-  const updateStyling = (key: keyof ButtonComponent['props']['styling'], value: string) => {
-    onUpdate({
-      ...component,
-      props: {
-        ...component.props,
-        styling: {
-          ...component.props.styling,
-          [key]: value,
-        },
-      },
-    });
-  };
-
-  const updateAlignment = (alignment: Alignment) => {
-    onUpdate({
-      ...component,
-      container: {
-        alignment,
-      },
-    });
-  };
-
   return (
-    <div>
-      <TextInput
-        label="Button Text"
-        value={component.props.text}
-        onChange={updateText}
-      />
+    <div className="space-y-4">
+      <div className="bg-yellow-50 border-2 border-yellow-400 rounded-lg p-6">
+        <h3 className="text-lg font-bold text-yellow-900 mb-2">
+          🔘 INTERVIEWEE TODO
+        </h3>
+        <p className="text-sm text-yellow-800 mb-4">
+          Implement the ButtonEditor component with form inputs for all button properties.
+        </p>
+        <div className="bg-white rounded p-4 text-xs">
+          <p className="font-semibold mb-2">Current component data:</p>
+          <pre className="overflow-auto">{JSON.stringify(component, null, 2)}</pre>
+        </div>
+      </div>
 
-      <SelectInput
-        label="Container Alignment"
-        value={component.container.alignment}
-        onChange={(value) => updateAlignment(value as Alignment)}
-        options={[
-          { value: 'left', label: 'Left' },
-          { value: 'center', label: 'Center' },
-          { value: 'right', label: 'Right' },
-        ]}
-      />
-
-      <div className="border-t border-gray-200 pt-4 mt-4">
-        <h4 className="text-sm font-semibold text-gray-700 mb-3">Styling</h4>
-
-        <ColorInput
-          label="Background Color"
-          value={component.props.styling.backgroundColor}
-          onChange={(value) => updateStyling('backgroundColor', value)}
-        />
-
-        <ColorInput
-          label="Text Color"
-          value={component.props.styling.color}
-          onChange={(value) => updateStyling('color', value)}
-        />
-
-        <StyleInput
-          label="Border Radius"
-          value={component.props.styling.borderRadius}
-          onChange={(value) => updateStyling('borderRadius', value)}
-          units={['px', 'rem', 'em', '%']}
-        />
-
-        <StyleInput
-          label="Padding"
-          value={component.props.styling.padding}
-          onChange={(value) => updateStyling('padding', value)}
-          units={['px', 'rem', 'em']}
-        />
-
-        <StyleInput
-          label="Font Size"
-          value={component.props.styling.fontSize}
-          onChange={(value) => updateStyling('fontSize', value)}
-          units={['px', 'rem', 'em']}
-        />
-
-        <SelectInput
-          label="Font Weight"
-          value={component.props.styling.fontWeight}
-          onChange={(value) => updateStyling('fontWeight', value)}
-          options={[
-            { value: 'normal', label: 'Normal' },
-            { value: 'bold', label: 'Bold' },
-            { value: '300', label: 'Light (300)' },
-            { value: '400', label: 'Regular (400)' },
-            { value: '500', label: 'Medium (500)' },
-            { value: '600', label: 'Semi-bold (600)' },
-            { value: '700', label: 'Bold (700)' },
-            { value: '800', label: 'Extra-bold (800)' },
-          ]}
-        />
-
-        <TextInput
-          label="Border (e.g., '1px solid #000' or 'none')"
-          value={component.props.styling.border}
-          onChange={(value) => updateStyling('border', value)}
-        />
+      <div className="text-sm text-gray-600 space-y-2">
+        <p className="font-semibold">Properties to implement:</p>
+        <ul className="list-disc list-inside space-y-1 text-xs ml-2">
+          <li>Button text (text input)</li>
+          <li>Container alignment (dropdown)</li>
+          <li>Background color (color picker)</li>
+          <li>Text color (color picker)</li>
+          <li>Border radius with unit selector</li>
+          <li>Padding with unit selector</li>
+          <li>Font size with unit selector</li>
+          <li>Font weight (dropdown)</li>
+          <li>Border (text input)</li>
+        </ul>
       </div>
     </div>
   );
