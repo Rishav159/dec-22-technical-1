@@ -2,23 +2,6 @@
 
 A React-based site builder for creating and editing page components with live preview.
 
-## Setup
-
-```bash
-npm install
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000)
-
-## Other Commands
-
-```bash
-npm run build        # Build for production
-npm run type-check   # Run TypeScript type checking
-npm run lint         # Run linting
-```
-
 ## Project Overview
 
 This is a visual site builder that allows users to:
@@ -37,6 +20,22 @@ The component editors in `components/sidebar/editors/` are not implemented. You 
 - **Text Component** (`TextEditor.tsx`)
 - **Button Component** (`ButtonEditor.tsx`)
 - **Image Component** (`ImageEditor.tsx`)
+
+**To get started** run the project and click around. Come back to the README below afterwards for more details
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000)
+
+```bash
+# Other Commands
+npm run build        # Build for production
+npm run type-check   # Run TypeScript type checking
+npm run lint         # Run linting
+```
 
 ## Component Data Structure
 
