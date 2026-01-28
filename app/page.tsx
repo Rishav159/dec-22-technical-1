@@ -44,6 +44,8 @@ const createDefaultComponent = (type: ComponentType, id: string): Component => {
             fontSize: '16px',
             fontWeight: '600',
             border: 'none',
+            margin: '8px',
+            textAlign: 'center',
           },
         },
       };

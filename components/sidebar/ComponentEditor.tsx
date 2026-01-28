@@ -42,7 +42,10 @@ export const ComponentEditor = ({ component, onUpdate, onBack }: ComponentEditor
           <TextEditor component={component}/>
         )}
         {isButtonComponent(component) && (
-          <ButtonEditor component={component}/>
+          <ButtonEditor
+            component={component}
+            onChange={onUpdate}
+          />
         )}
         {isImageComponent(component) && (
           <ImageEditor component={component}/>

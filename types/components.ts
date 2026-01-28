@@ -29,6 +29,8 @@ export interface ButtonStyling {
   fontSize: string;
   fontWeight: string;
   border: string;
+  margin: string;
+  textAlign: CSSProperties['textAlign'];
 }
 
 export interface ImageStyling {
